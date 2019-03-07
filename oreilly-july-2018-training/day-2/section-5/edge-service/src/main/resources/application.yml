@@ -16,7 +16,8 @@ spring:
   profiles: development
 eureka:
   instance:
-    prefer-ip-address: true
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 1
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -28,6 +29,7 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true
